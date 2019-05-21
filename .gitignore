@@ -1,0 +1,23 @@
+# Hidden files
+.*
+!.gitignore
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# IDE Files
+*.iws
+*.iml
+*.ipr
+*.idea
+
+# Node
+**/node_modules/**
+node_modules/
+bower_components/
+**/**/*.map
+**/log/*.*
+**/logs/*.*
+npm-debug.log
+

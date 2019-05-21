@@ -1,0 +1,28 @@
+var Router = require('koa-router');
+
+var routes = [
+    {
+        url: '/testPath/:id',
+        method: 'GET',
+        handler: require('./test').test.test1
+    },
+    {
+        url: '/test-post',
+        method: 'POST',
+        handler: require('./test').test.testPost
+    }
+];
+
+var resources = new Router({ prefix: '/api' });
+for (var route of routes) {
+    resources[route.method.toLowerCase()].apply(resources, getRouteHandler(route));
+}
+
+function getRouteHandler(route) {
+    var args = [];
+    args.push(route.url);
+    args.push(route.handler);
+    return args;
+}
+
+exports.router = resources;
